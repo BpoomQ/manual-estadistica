@@ -54,5 +54,62 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
 
 El gráfico de Boxplot es el más utilizado para mostrar un resumen de gran cantidad de datos y para comparar la distribución de varios grupos. Este tipo de diagramas se crean en R mediante la función de **boxplot()**
 
+### 1.2 Diagrama de Barras
 
+### 1.3 Historigrama
 
+### 1.4 Diagrama de Pastel
+
+### 1.5 Diagrama de Pareto
+
+### 1.6 Diagrama de Dispersión
+
+---
+
+# 2. Medidas de tendencia central
+
+### 2.1 Moda
+
+### 2.2 Media
+
+### 2.3 Mediana
+
+### 2.4 Máximo y minimo
+
+---
+
+# 3. Coeficiente de variación
+
+---
+
+# 4. Medidas de asimetria y curtosis
+
+### 4.1 Curtosis
+
+### 4.2 Asimetria
+
+---
+
+# 5. Distribuciones
+
+### 5.1 Distribución normal
+
+### 5.2 Distribución binomial
+
+### 5.3 Distribución de Poisson
+
+---
+
+# 6. Probabilidad de eventos
+
+---
+
+# 7. Intervalos de confianza
+
+### 7.1 T-Test
+
+### 7.2 Anova
+
+---
+
+# 8. Referencias
