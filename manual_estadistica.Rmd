@@ -1,0 +1,58 @@
+---
+title: "Manual de estadistica"
+output: html_notebook
+---
+**Elaborado por:**
+---
+* Alexander Nicholls
+
+* Alejandro Tarazona
+
+
+**Introducción**
+---
+R Studio es un lenguaje de programación es una serie de reglas que están diseñadas para realizar procesos en una computadora, es un lenguaje para el cálculo estadístico y la generación de gráficos, que ofrece una gran variedad de técnicas estadísticas y gráficas.
+
+A continuación definiremos e ilustraremos el como se pueden usar estas funciones dentro de este software y como se desarrollan.
+
+**Lista de temas a tratar:**
+---
+
+1. [Graficas](#graficas)
+    + Boxplot
+    + Diagrama de barras
+    + Historigrama
+    + Diagrama de pastel
+    + Diagrama de Pareto
+    + Diagrama de dispersión
+2. Medidas de tendencia central
+    + Moda
+    + Media
+    + Mediana
+    + Maximo y minimo
+3. Coeficiente de variación
+4. Medidas de asimetria y curtosis
+    + Curtosis
+    + Asimetria
+5. Distribuciones
+    + Distribución normal
+    + Distribución binomial
+    + Distribución de Poisson
+6. Probabilidad de eventos
+7. Intervalos de confianza
+    + T-Test
+    + Anova
+8. Referencias
+
+---
+
+# 1. Graficas
+
+
+### 1.1 BOXPLOT
+
+
+El gráfico de Boxplot es el más utilizado para mostrar un resumen de gran cantidad de datos y para comparar la distribución de varios grupos. Este tipo de diagramas se crean en R mediante la función de **boxplot()**
+
+
+
