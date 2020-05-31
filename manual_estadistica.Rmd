@@ -95,7 +95,6 @@ media<-c(4,7,6,7,5,8,9,4,12,3,5,6,8,7,4,10)
 arithmetic.mean(media)
 ```
 
-
 ### 2.3 Mediana {#mediana}
 
 La **mediana** representa el dato en la posición central dentro de un conjunto de datos cuando este se ordena de menor a mayor. Para realizar este análisis llamaremos a la función **median()**
@@ -106,7 +105,6 @@ Para este ejemplo tomaremos un vector y encontraremos su valor medio.
 mediana<-seq(1,50,2)
 median(mediana)
 ```
-
 
 ### 2.4 Máximo y minimo {#maxmin}
 
@@ -131,14 +129,11 @@ El coeficiente de variación, representado con los simbolos $cv$, sirve para com
 
 Se puede calcular el coeficiente de variación de la siguiente forma: $CV = 100(\frac{\sigma}{x})$. Donde $\sigma$ es la desviación estandar y $x$ es la media.
 
-
 |Variabilidad|Intervalo|
 ---|---|
 Poco variable|[0-30]|
 Variable|(30-70]|
 Muy variable|(70-100]|
-
----
 
 # 3. Medidas de asimetria y curtosis {#asicurt}
 
@@ -146,7 +141,12 @@ Muy variable|(70-100]|
 
 ### 3.2 Asimetria {#asimetria}
 
----
+
+
+||$(-\inf, -0.5)$|$[0.5,0.5]$|$(0.5,\inf)$|
+---|---|---|---|
+**Curtosis**|Platicúrtica|Mesocúrtica|Leptocúrtica|
+**Asimetria**|Sesgo positivo|Simetrica|Sesgo negativo|
 
 # 4. Graficas {#graficas}
 
