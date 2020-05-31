@@ -352,23 +352,23 @@ Para explicar este modelo podemos usar el siguiente ejemplo:
 
 * Se quiere saber si los colores son atractivos para los insectos; para ello se diseñaron trampas con los siguientes colores: Amarillo, Azul, Blanco y Verde.
 
-    + Tomamos las dos variables, insectos que es nuestra variable de respuesta y colores que es nuestra variable factor. En este caso tomaremos los grupos y los pondremos en la consola para su análisis de la siguiente manera:
+    Tomamos las dos variables, insectos que es nuestra variable de respuesta y colores que es nuestra variable factor. En este caso tomaremos los grupos y los pondremos en la consola para su análisis de la siguiente manera:
     
-    Para el grupo de insectos usaremos la siguiente muestra:
++ Para el grupo de insectos usaremos la siguiente muestra:
     `insectos <- c(16,11,20,21,14,7,37,32,15,25,39,41,21,12,14,17,13,17,45,59,48,46,38,47)`
 
-    Y para el grupo de colores usaremos la siguiente:
++ Y para el grupo de colores usaremos la siguiente:
     `colores <- as.factor(c(rep(c("azul", "verde",  "blanco", "amarillo"), each =6)))` 
     
-    En este caso cada color se repetirá 6 veces para que los grupos a comparar sean del mismo tamaño.
+ + En este caso cada color se repetirá 6 veces para que los grupos a comparar sean del mismo tamaño.
     
-    + Para realizar un análisis de Anova entre los dos grupos usamos el siguiente codigo:
++ Para realizar un análisis de Anova entre los dos grupos usamos el siguiente codigo:
     `fm = aov ( lm(insectos ~ colores) )`
     
-    + Tambien, si queremos un resumen del análisis anterior utilizamos la funcion _summary_ de la siguiente manera:
++ Tambien, si queremos un resumen del análisis anterior utilizamos la funcion _summary_ de la siguiente manera:
     `summary(fm)`
     
-    +Finalmente para ver los elementos generados por el análisis de Anova usamos el siguiente bloque de código:
++ Finalmente para ver los elementos generados por el análisis de Anova usamos el siguiente bloque de código:
     `names(fm)`
     
 ```{r}
