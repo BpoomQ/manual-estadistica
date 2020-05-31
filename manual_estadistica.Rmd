@@ -132,7 +132,37 @@ barplot(datos, main = "Gráfica de educación", xlab = "Nivel educativo", ylab =
 
 ### 4.3 Historigrama
 
+Es un grafico muy utilizado para representar la cuenta de cada dato (la frecuencia). Para la realización de este diagrama se pueden usar variables cuantitativas.
+
+Para realizar un histograma es con la función **hist()** y se le pasa por parámetro el conjunto de datos numericos.
+
+    hist(datos)
+
+```{r}
+x<-c(1, 1, 1, 2, 2, 3, 4, 4, 5, 5, 5)
+hist(x)
+```
+
 ### 4.4 Diagrama de Pastel
+
+Es un gráfico al cual se acude muy frecuentemente para representar porcentajes, proporciones y frecuencias con variables cualitativas. 
+
+La sintaxis para graficar es
+
+	  Pie(proporciones,  labes = etiquetas, main = titulo)
+
+* **x:** Lista con los valores
+* **labels:** Descripción de las porciones.
+* **radius:** Indica el radio (debe ser un valor entre -1 y 1)
+* **col:** Paleta de colores
+* **clockwise:** Valor lógico que indica el sentido en el que se representa el pie
+
+```{r}
+proporciones<-c(0.1,0.1,0.4,0.2,0.3)
+etiquetas<-c('Etiqueta #1', 'Etiqueta #2', 'Etiqueta #3', 'Etiqueta #4', 'Etiqueta #5')
+titulo = "Ejemplo de diagrama de pastel"
+pie(proporciones, labels = etiquetas, main = titulo)
+```
 
 ### 4.5 Diagrama de Pareto
 
