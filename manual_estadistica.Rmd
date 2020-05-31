@@ -277,8 +277,6 @@ pareto.chart(defectos, ylab = "Frecuencia", main = "Diagrama de pareto")
 
 
 
-
-
 # 5. Distribuciones {#distribuciones}
 
 ### 5.1 Distribución normal {#normal}
@@ -474,6 +472,8 @@ names(fm)
 ---
 
 # 8. Referencias {#referencias}
+
+Asimetría y curtosis. (2020). Retrieved 31 May 2020, from https://www.universoformulas.com/estadistica/descriptiva/asimetria-curtosis
 
 Coeficiente de variación. (2020). Retrieved 31 May 2020, from https://es.wikipedia.org/wiki/Coeficiente_de_variaci%C3%B3n
 
