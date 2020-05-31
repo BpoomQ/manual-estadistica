@@ -46,15 +46,49 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
 
 ---
 
+# 1. Tipos de variables: 
+
+### Cuantitativas:
+Son variables cuantitativas si los valores que toman son numericos.
+
+* Discretas: Son discretas si sus valores son enteros.
+* Continuas: Son continuas si sus valores pueden tomar valores decimales.
+
+### Cualitativas: 
+Son cuantitativas si sus valores no son numericos.
+
+* Nominales: Son nominales si sus valores no se pueden ordenar.
+* Ordinales: Son ordinales si sus valores se pueden ordenar.
+
 # 1. Graficas
 
 
 ### 1.1 BOXPLOT
 
+#### ¿Qué es boxplot? 
 
-El gráfico de Boxplot es el más utilizado para mostrar un resumen de gran cantidad de datos y para comparar la distribución de varios grupos. Este tipo de diagramas se crean en R mediante la función de **boxplot()**
+El gráfico de Boxplot es el más utilizado para mostrar un resumen de una cantidad de datos, adicionalmente para comparar la distribución de varios grupos. Los datos cuantitativos son los unicos que se pueden representar con en esta grafica.
+
+Este tipo de diagramas se crean en R mediante la función de **boxplot()**. Cuya sintaxis es 
+
+    boxplot(x, Datos, Muesca, VarTam, Nombres, Main)
+
+* **x:** es un vector o una fórmula.
+* **Datos:** es el marco de datos.
+* **Muesca:** es un valor lógico. Establecer como VERDADERO para dibujar una muesca.
+* **VarTam:** es un valor lógico. Establecer como verdadero para dibujar el ancho del cuadro proporcional al tamaño de la muestra.
+* **Nombres:** son las etiquetas de grupo que se imprimirán debajo de cada diagrama de caja.
+* **Main:** se usa para dar un título al gráfico.
+
+Ahora realizaremos un ejemplo:
+
+```{r}
+input<-mtcars[,c('mpg','cyl')]
+boxplot(mpg~cyl, data = mtcars, xlab = "Number of Cylinders", ylab = "Miles Per Gallon", main = "Mileage Data", horizontal = T)
+```
 
 ### 1.2 Diagrama de Barras
+
 
 ### 1.3 Historigrama
 
