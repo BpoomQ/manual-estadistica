@@ -62,10 +62,10 @@ Son cuantitativas si sus valores no son numericos.
 * Nominales: Son nominales si sus valores no se pueden ordenar.
 * Ordinales: Son ordinales si sus valores se pueden ordenar.
 
-# 1. Graficas
+# 2. Graficas
 
 
-### 1.1 BOXPLOT
+### 2.1 BOXPLOT
 
 #### ¿Qué es boxplot? 
 
@@ -89,54 +89,54 @@ input<-mtcars[,c('mpg','cyl')]
 boxplot(mpg~cyl, data = mtcars, xlab = "Number of Cylinders", ylab = "Miles Per Gallon", main = "Mileage Data", horizontal = T)
 ```
 
-### 1.2 Diagrama de Barras
+### 2.2 Diagrama de Barras
 
 
-### 1.3 Historigrama
+### 2.3 Historigrama
 
-### 1.4 Diagrama de Pastel
+### 2.4 Diagrama de Pastel
 
-### 1.5 Diagrama de Pareto
+### 2.5 Diagrama de Pareto
 
-### 1.6 Diagrama de Dispersión
-
----
-
-# 2. Medidas de tendencia central
-
-### 2.1 Moda
-
-### 2.2 Media
-
-### 2.3 Mediana
-
-### 2.4 Máximo y minimo
+### 2.6 Diagrama de Dispersión
 
 ---
 
-# 3. Coeficiente de variación
+# 3. Medidas de tendencia central
+
+### 3.1 Moda
+
+### 3.2 Media
+
+### 3.3 Mediana
+
+### 3.4 Máximo y minimo
 
 ---
 
-# 4. Medidas de asimetria y curtosis
-
-### 4.1 Curtosis
-
-### 4.2 Asimetria
+# 4. Coeficiente de variación
 
 ---
 
-# 5. Distribuciones
+# 5. Medidas de asimetria y curtosis
 
-### 5.1 Distribución normal
+### 5.1 Curtosis
 
-### 5.2 Distribución binomial
-
-### 5.3 Distribución de Poisson
+### 5.2 Asimetria
 
 ---
 
-# 6. Probabilidad de eventos
+# 6. Distribuciones
+
+### 6.1 Distribución normal
+
+### 6.2 Distribución binomial
+
+### 6.3 Distribución de Poisson
+
+---
+
+# 7. Probabilidad de eventos
 
 La probabilidad de eventos es la probabilidad de que ocurra un resultado o evento específico, tambié conocida como probabilidad pronosticada. Esto es una recopilación  de resultados contenido en un espacio muestral **S**.
 
@@ -181,9 +181,9 @@ Evento
 
 ---
 
-# 7. Intervalos de confianza
+# 8. Intervalos de confianza
 
-### 7.1 T-Test
+### 8.1 T-Test
 
 Esta prueba es un análisis usado para determinar la diferencia significativa entre los promedios de dos grupos y de esta manera entender si están relacionados en algunas características. Los datos a analizar deben tener distribución normal. La función a utilizar para realizar ese análisis es `t.test()`.
 
@@ -198,7 +198,7 @@ print(test)
 ```
  
 
-### 7.2 Anova
+### 8.2 Anova
 
 
 Para el modelo de análisis de varianza (ANOVA) se pueden tomar dos o más grupos para comparar y de esta manera evaluar la importancia de uno o más factores; en este análisis se establece una hipótesis nula que dice que las medidas de la población son iguales y por otro lado se crea una hipótesis alternativa que establece que al menos una es diferente.
@@ -239,4 +239,4 @@ names(fm)
     
 ---
 
-# 8. Referencias
+# 9. Referencias
