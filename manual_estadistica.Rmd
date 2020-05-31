@@ -20,35 +20,36 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
 **Lista de temas a tratar:**
 ---
 
-1. [Graficas](#graficas)
-    + Boxplot
-    + Diagrama de barras
-    + Historigrama
-    + Diagrama de pastel
-    + Diagrama de Pareto
-    + Diagrama de dispersión
-2. Medidas de tendencia central
-    + Moda
-    + Media
-    + Mediana
-    + Maximo y minimo
-3. Coeficiente de variación
-4. Medidas de asimetria y curtosis
-    + Curtosis
-    + Asimetria
-5. Distribuciones
-    + Distribución normal
-    + Distribución binomial
-    + Distribución de Poisson
-6. Probabilidad de eventos
-7. Intervalos de confianza
-    + T-Test
-    + Anova
-8. Referencias
+1. [Tipos de variables](#variables).
+2. [Medidas de tendencia central](#medidas)
+    + [Moda](#moda)
+    + [Media](#media)
+    + [Mediana](#mediana)
+    + [Maximo y minimo](#maxmin)
+3. [Medidas de asimetria y curtosis](#asicurt)
+    + [Curtosis](#curtosis)
+    + [Asimetria](#asimetria)
+4. [Graficas](#graficas)
+    + [Boxplot](#boxplot)
+    + [Diagrama de barras](#barras)
+    + [Historigrama](#histograma)
+    + [Diagrama de pastel](#pastel)
+    + [Diagrama de Pareto](#pareto)
+    + [Diagrama de dispersión](#dispersion)
+5. [Coeficiente de variación](#variacion)
+6. [Distribuciones](#distribuciones)
+    + [Distribución normal](#normal)
+    + [Distribución binomial](#binomial)
+    + [Distribución de Poisson](#poisson)
+7. [Probabilidad de eventos](#eventos)
+8. [Intervalos de confianza](#confianza)
+    + [T-Test](#ttest)
+    + [Anova](#anova)
+9. [Referencias](#referencias)
 
 ---
 
-# 1. Tipos de variables: 
+# 1. Tipos de variables: {#variables}
 
 ### Cuantitativas:
 Son variables cuantitativas si los valores que toman son numericos.
@@ -64,30 +65,75 @@ Son cuantitativas si sus valores no son numericos.
 
 ---
 
-# 2. Medidas de tendencia central
+# 2. Medidas de tendencia central {#medidas}
 
-### 2.1 Moda
+### 2.1 Moda {#moda}
 
-### 2.2 Media
+En un grupo determinado la **moda** es el valor con mayor frecuencia en una distribución de datos. Para calcularla usamos la función `table(variable)` el cual nos dice cuantas veces aparece cada número dentro de un vector, por lo que la moda será el número que más veces se repita.
 
-### 2.3 Mediana
+Un ejemplo  lo podemos ver cargando los datos y haciendo uso de la función **table()**
 
-### 2.4 Máximo y minimo
+```{r}
+x<-seq(1,50,2)
+table(x)
+```
+
+### 2.2 Media {#media}
+
+En un espacio muestral la **Media** es el valor que resulta de sumar todos los numeros en un conjunto de datos y luego dividir el número resultante entre el número de valores en el conjunto.
+
+Para este ejemplo tomaremos un conjunto de datos de la siguiente manera:
+
+```{r}
+arithmetic.mean <-function(x) {sum(x)/length(x)}
+media<-c(4,7,6,7,5,8,9,4,12,3,5,6,8,7,4,10)
+arithmetic.mean(media)
+```
+
+
+### 2.3 Mediana {#mediana}
+
+La **mediana** representa el dato en la posición central dentro de un conjunto de datos cuando este se ordena de menor a mayor. Para realizar este análisis llamaremos a la función **median()**
+
+Para este ejemplo tomaremos un vector y encontraremos su valor medio.
+
+```{r}
+mediana<-seq(1,50,2)
+median(mediana)
+```
+
+
+### 2.4 Máximo y minimo {#maxmin}
+
+El **máximo** y el **minimo** son respectivamente el valor más grande y el valor más pequeño en un grupo determinado. Para llamar a estas funciones usaremos **max()** y **min()**
+
+Como ejemplo tomaremos un grupo de datos y utilizaremos ambas funciones.
+
+   + Para el máximo:
+```{r}
+maximo<-seq(1,59,2)
+max(maximo)
+```
+ + Para el minimo:
+```{r}
+minimo<-seq(1,59,2)
+min(minimo)
+```
+    
+---
+
+# 3. Medidas de asimetria y curtosis {#asicurt}
+
+### 3.1 Curtosis {#curtosis}
+
+### 3.2 Asimetria {#asimetria}
 
 ---
 
-# 3. Medidas de asimetria y curtosis
-
-### 3.1 Curtosis
-
-### 3.2 Asimetria
-
----
-
-# 4. Graficas
+# 4. Graficas {#graficas}
 
 
-### 4.1 BOXPLOT
+### 4.1 BOXPLOT {#boxplot}
 
 El gráfico de Boxplot es el más utilizado para mostrar un resumen de una cantidad de datos, adicionalmente para comparar la distribución de varios grupos. Los datos cuantitativos son los únicos que se pueden representar con en esta grafica.
 
@@ -109,7 +155,7 @@ input<-mtcars[,c('mpg','cyl')]
 boxplot(mpg~cyl, data = mtcars, xlab = "Number of Cylinders", ylab = "Miles Per Gallon", main = "Mileage Data", horizontal = T)
 ```
 
-### 4.2 Diagrama de Barras
+### 4.2 Diagrama de Barras {#barras}
 
 Es un gráfico principalmente utilizado para representar datos de variables cuantitativas. Con el fin de mostrar la frecuencia con la que se han observado los datos de una variable discreta, con una barra para cada categoría de esta variable.
 
@@ -130,7 +176,7 @@ datos<-table(xf)
 barplot(datos, main = "Gráfica de educación", xlab = "Nivel educativo", ylab = "Frecuencia", col = c("royalblue", "seagreen", "purple", "grey"))
 ```
 
-### 4.3 Historigrama
+### 4.3 Historigrama {#histograma}
 
 Es un grafico muy utilizado para representar la cuenta de cada dato (la frecuencia). Para la realización de este diagrama se pueden usar variables cuantitativas.
 
@@ -143,7 +189,7 @@ x<-c(1, 1, 1, 2, 2, 3, 4, 4, 5, 5, 5)
 hist(x)
 ```
 
-### 4.4 Diagrama de Pastel
+### 4.4 Diagrama de Pastel {#pastel}
 
 Es un gráfico al cual se acude muy frecuentemente para representar porcentajes, proporciones y frecuencias con variables cualitativas. 
 
@@ -164,27 +210,108 @@ titulo = "Ejemplo de diagrama de pastel"
 pie(proporciones, labels = etiquetas, main = titulo)
 ```
 
-### 4.5 Diagrama de Pareto
+### 4.5 Diagrama de Pareto {#pareto}
 
-### 4.6 Diagrama de Dispersión
-
----
-
-# 5. Coeficiente de variación
+### 4.6 Diagrama de Dispersión {#dispersion}
 
 ---
 
-# 6. Distribuciones
-
-### 6.1 Distribución normal
-
-### 6.2 Distribución binomial
-
-### 6.3 Distribución de Poisson
+# 5. Coeficiente de variación {#variacion}
 
 ---
 
-# 7. Probabilidad de eventos
+# 6. Distribuciones {#distribuciones}
+
+### 6.1 Distribución normal {#normal}
+
+La distribución normal es un modelo mediante el cual se aproxima el valor de una variable aleatoria a un valor ideal.Para obtener los valores basados en una distribución normal existen 4 funciones:
+
+    dnorm: el cual devuelve resultados de la función de densidad. Se usa de la siguiente manera:
+    `dnorm(x, mean = 0, sd = 1, log = F)`
+    
+```{r}
+curve(dnorm(x, 0, 2), -8, 8)
+```
+    
+### 6.2 Distribución binomial {#binomial}
+
+Para la distribución binomial utilizamos la función **dbinom()** la cual da las probabilidades para varios valores de la variable binomial. Esta función requiere de tres argumentos los cuales son los siguientes:
+
+* El primer argumento para esta función debe ser un vector de cuantiles (los valores posibles de la variable aleatoria X).
+* El segundo y tercer argumento son los parámetros definidos de la distribución, a saber, n (el núimero de ensayos independientes) y p (la probabilidad de exito en cada ensayo).
+
+Para explicar esta función tomaremos como ejemplo la novela de un autor que ha tenido gran exito hasta el punto que el 80% de los lectores ya la han leido. Un grupo de 4 personas son aficionados a la lectura y presentan los siguientes dos casos:
+
+A. ¿Cuál es la probabilidad de que en el grupo hayan leído la novela 2 personas?
+
+```{r}
+dbinom(2,4,0.80)
+```
+B. La probabilidad de exito y la probabilidad de fracaso de leer la novela en un grupo de 4 personas.
+
+```{r}
+a=4
+exito=0.80
+fx.binomial=dbinom(0:4,a,exito)
+fbb=pbinom(0:4,a,exito)
+fx.binomial=data.frame(x=0:4, "F(X)"=fx.binomial, "SUM F(X)"=fbb)
+fx.binomial
+```
+
+
+### 6.3 Distribución de Poisson {#poisson}
+
+ La distribución de Poisson es un modelo que se aplica a las ocurrencias de algún suceso durante un intervalo determinado. la función para llamar a esta distribución  es **dpois()**.
+ 
+* dpois(x, lambda, log = F): Devuelve resultados de la función de densidad.
+
+Los parámetros que se pueden pasar a esta función son los siguientes:
+
+```
+x: Vector de cuartiles (valor entero positivo).
+q: Vector de cuartiles.
+p: Vector de probabilidades.
+n: Número de valores aleatorios a devolver.
+prob: Probabilidad de éxito en cada ensayo.
+lambda: Vector de medias (Valor no negativo).
+lower.tail: Parámetro booleano, si es TRUE las probabilidades son P[X ≤ x], de lo contrario P[X > x]
+```
+
+Para explicar esta distribución tomaremos como ejemplo una central telefónica en un hotel el cual recibe un número determinado de llamadas por minuto el cual sigue la distribución de Poisson con parámetro λ = 0.5 en el cual deberemos determinar:
+
+A. Cual es la probabilidad de que en un minuto al azar se reciba solo una llamada, para el cual usaremos el siguiente código:
+
+```{r}
+dpois(c(1), 0.5)
+```
+
+B. Cual es la probabilidad de que en un minuto al azar se reciban como máximo dos llamadas, para el cual usaremos el siguiente bloque de código:
+
+```{r}
+ppois(c(2), 0.5)
+```
+
+C. Cual es la probabilidad de que en un minuto al azar se reciban mas de tres llamadas por minuto, para el cual usaremos el siguiente código:
+
+```{r}
+ppois(c(3), 0.5, lower.tail=F)
+```
+
+D. Cual es la probabilidad de que en un minuto al azar se reciban cinco llamadas en dos minutos, para lo cual usaremos el siguiente codigo:
+
+```{r}
+dpois(c(5), 1)
+```
+
+E. Cual es la probabilidad mínima que debe recibir la central por minuto para que exista una probabilidad del 98.5%, para el cual usaremos el siguiente codigo:
+
+```{r}
+qpois(c(0.985), 0.5)
+```
+
+---
+
+# 7. Probabilidad de eventos {#eventos}
 
 La probabilidad de eventos es la probabilidad de que ocurra un resultado o evento específico, tambié conocida como probabilidad pronosticada. Esto es una recopilación  de resultados contenido en un espacio muestral **S**.
 
@@ -229,9 +356,9 @@ Evento
 
 ---
 
-# 8. Intervalos de confianza
+# 8. Intervalos de confianza {#confianza}
 
-### 8.1 T-Test
+### 8.1 T-Test {#ttest}
 
 Esta prueba es un análisis usado para determinar la diferencia significativa entre los promedios de dos grupos y de esta manera entender si están relacionados en algunas características. Los datos a analizar deben tener distribución normal. La función a utilizar para realizar ese análisis es `t.test()`.
 
@@ -246,7 +373,7 @@ print(test)
 ```
  
 
-### 8.2 Anova
+### 8.2 Anova {#anova}
 
 
 Para el modelo de análisis de varianza (ANOVA) se pueden tomar dos o más grupos para comparar y de esta manera evaluar la importancia de uno o más factores; en este análisis se establece una hipótesis nula que dice que las medidas de la población son iguales y por otro lado se crea una hipótesis alternativa que establece que al menos una es diferente.
@@ -255,23 +382,23 @@ Para explicar este modelo podemos usar el siguiente ejemplo:
 
 * Se quiere saber si los colores son atractivos para los insectos; para ello se diseñaron trampas con los siguientes colores: Amarillo, Azul, Blanco y Verde.
 
-    + Tomamos las dos variables, insectos que es nuestra variable de respuesta y colores que es nuestra variable factor. En este caso tomaremos los grupos y los pondremos en la consola para su análisis de la siguiente manera:
+    Tomamos las dos variables, insectos que es nuestra variable de respuesta y colores que es nuestra variable factor. En este caso tomaremos los grupos y los pondremos en la consola para su análisis de la siguiente manera:
     
-    Para el grupo de insectos usaremos la siguiente muestra:
++ Para el grupo de insectos usaremos la siguiente muestra:
     `insectos <- c(16,11,20,21,14,7,37,32,15,25,39,41,21,12,14,17,13,17,45,59,48,46,38,47)`
 
-    Y para el grupo de colores usaremos la siguiente:
++ Y para el grupo de colores usaremos la siguiente:
     `colores <- as.factor(c(rep(c("azul", "verde",  "blanco", "amarillo"), each =6)))` 
     
-    En este caso cada color se repetirá 6 veces para que los grupos a comparar sean del mismo tamaño.
+ + En este caso cada color se repetirá 6 veces para que los grupos a comparar sean del mismo tamaño.
     
-    + Para realizar un análisis de Anova entre los dos grupos usamos el siguiente codigo:
++ Para realizar un análisis de Anova entre los dos grupos usamos el siguiente codigo:
     `fm = aov ( lm(insectos ~ colores) )`
     
-    + Tambien, si queremos un resumen del análisis anterior utilizamos la funcion _summary_ de la siguiente manera:
++ Tambien, si queremos un resumen del análisis anterior utilizamos la funcion _summary_ de la siguiente manera:
     `summary(fm)`
     
-    +Finalmente para ver los elementos generados por el análisis de Anova usamos el siguiente bloque de código:
++ Finalmente para ver los elementos generados por el análisis de Anova usamos el siguiente bloque de código:
     `names(fm)`
     
 ```{r}
@@ -287,4 +414,4 @@ names(fm)
     
 ---
 
-# 9. Referencias
+# 9. Referencias {#referencias}
