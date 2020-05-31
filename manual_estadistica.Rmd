@@ -4,21 +4,19 @@ output: html_notebook
 editor_options: 
   chunk_output_type: inline
 ---
-**Elaborado por:**
----
+
+#### Elaborado por:
 * Alexander Nicholls
 
 * Alejandro Tarazona
 
 
-**Introducción**
----
+## Introducción
 R Studio es un lenguaje de programación es una serie de reglas que están diseñadas para realizar procesos en una computadora, es un lenguaje para el cálculo estadístico y la generación de gráficos, que ofrece una gran variedad de técnicas estadísticas y gráficas.
 
 A continuación definiremos e ilustraremos el como se pueden usar estas funciones dentro de este software y como se desarrollan.
 
-**Lista de temas a tratar:**
----
+## Lista de temas a tratar:
 
 1. [Tipos de variables](#variables).
 2. [Medidas de tendencia central](#medidas)
@@ -26,6 +24,8 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
     + [Media](#media)
     + [Mediana](#mediana)
     + [Maximo y minimo](#maxmin)
+    + [Coeficiente de variación](#variacion)
+
 3. [Medidas de asimetria y curtosis](#asicurt)
     + [Curtosis](#curtosis)
     + [Asimetria](#asimetria)
@@ -36,18 +36,15 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
     + [Diagrama de pastel](#pastel)
     + [Diagrama de Pareto](#pareto)
     + [Diagrama de dispersión](#dispersion)
-5. [Coeficiente de variación](#variacion)
-6. [Distribuciones](#distribuciones)
+5. [Distribuciones](#distribuciones)
     + [Distribución normal](#normal)
     + [Distribución binomial](#binomial)
     + [Distribución de Poisson](#poisson)
-7. [Probabilidad de eventos](#eventos)
-8. [Intervalos de confianza](#confianza)
+6. [Probabilidad de eventos](#eventos)
+7. [Intervalos de confianza](#confianza)
     + [T-Test](#ttest)
     + [Anova](#anova)
-9. [Referencias](#referencias)
-
----
+8. [Referencias](#referencias)
 
 # 1. Tipos de variables: {#variables}
 
@@ -63,7 +60,6 @@ Son cuantitativas si sus valores no son numericos.
 * Nominales: Son nominales si sus valores no se pueden ordenar.
 * Ordinales: Son ordinales si sus valores se pueden ordenar.
 
----
 
 # 2. Medidas de tendencia central {#medidas}
 
@@ -120,6 +116,8 @@ minimo<-seq(1,59,2)
 min(minimo)
 ```
     
+### Coeficiente de variación {#variacion}
+
 ---
 
 # 3. Medidas de asimetria y curtosis {#asicurt}
@@ -212,17 +210,34 @@ pie(proporciones, labels = etiquetas, main = titulo)
 
 ### 4.5 Diagrama de Pareto {#pareto}
 
+Este diagrama es normalmente utilizado para realizar una comparación de variables cualitativas de forma ordenada. Para la lectura de este diagrama, hay que tener en cuenta la distribucion 80% y 20%.
+
+Para construir este diagrama se utiliza el paquete qcc. Adicionalmente se usan los siguientes comandos:
+
+    library(qcc)
+    tipo <- Cantidad
+    names(Tipo) <- Defecto
+    pareto.chart(tipo)
+
+Ejemplo:
+
+```{r}
+library(qcc)
+defectos<-c(42,20,10,104)
+names(defectos)<-c("A", "B", "D", "E")
+pareto.chart(defectos, ylab = "Frecuencia", main = "Diagrama de pareto")
+```
+
+
 ### 4.6 Diagrama de Dispersión {#dispersion}
 
----
 
-# 5. Coeficiente de variación {#variacion}
 
----
 
-# 6. Distribuciones {#distribuciones}
 
-### 6.1 Distribución normal {#normal}
+# 5. Distribuciones {#distribuciones}
+
+### 5.1 Distribución normal {#normal}
 
 La distribución normal es un modelo mediante el cual se aproxima el valor de una variable aleatoria a un valor ideal.Para obtener los valores basados en una distribución normal existen 4 funciones:
 
@@ -233,7 +248,7 @@ La distribución normal es un modelo mediante el cual se aproxima el valor de un
 curve(dnorm(x, 0, 2), -8, 8)
 ```
     
-### 6.2 Distribución binomial {#binomial}
+### 5.2 Distribución binomial {#binomial}
 
 Para la distribución binomial utilizamos la función **dbinom()** la cual da las probabilidades para varios valores de la variable binomial. Esta función requiere de tres argumentos los cuales son los siguientes:
 
@@ -259,7 +274,7 @@ fx.binomial
 ```
 
 
-### 6.3 Distribución de Poisson {#poisson}
+### 5.3 Distribución de Poisson {#poisson}
 
  La distribución de Poisson es un modelo que se aplica a las ocurrencias de algún suceso durante un intervalo determinado. la función para llamar a esta distribución  es **dpois()**.
  
@@ -311,7 +326,7 @@ qpois(c(0.985), 0.5)
 
 ---
 
-# 7. Probabilidad de eventos {#eventos}
+# 6. Probabilidad de eventos {#eventos}
 
 La probabilidad de eventos es la probabilidad de que ocurra un resultado o evento específico, tambié conocida como probabilidad pronosticada. Esto es una recopilación  de resultados contenido en un espacio muestral **S**.
 
@@ -356,9 +371,9 @@ Evento
 
 ---
 
-# 8. Intervalos de confianza {#confianza}
+# 7. Intervalos de confianza {#confianza}
 
-### 8.1 T-Test {#ttest}
+### 7.1 T-Test {#ttest}
 
 Esta prueba es un análisis usado para determinar la diferencia significativa entre los promedios de dos grupos y de esta manera entender si están relacionados en algunas características. Los datos a analizar deben tener distribución normal. La función a utilizar para realizar ese análisis es `t.test()`.
 
@@ -373,7 +388,7 @@ print(test)
 ```
  
 
-### 8.2 Anova {#anova}
+### 7.2 Anova {#anova}
 
 
 Para el modelo de análisis de varianza (ANOVA) se pueden tomar dos o más grupos para comparar y de esta manera evaluar la importancia de uno o más factores; en este análisis se establece una hipótesis nula que dice que las medidas de la población son iguales y por otro lado se crea una hipótesis alternativa que establece que al menos una es diferente.
@@ -414,4 +429,12 @@ names(fm)
     
 ---
 
-# 9. Referencias {#referencias}
+# 8. Referencias {#referencias}
+
+Coeficiente de variación. (2020). Retrieved 31 May 2020, from https://es.wikipedia.org/wiki/Coeficiente_de_variaci%C3%B3n
+
+Diagrama de Pareto. (2020). Retrieved 31 May 2020, from https://es.wikipedia.org/wiki/Diagrama_de_Pareto
+
+R boxplot() to Create Box Plot (With Numerous Examples). (2020). Retrieved 31 May 2020, from https://www.datamentor.io/r-programming/box-plot/
+
+RPubs - Construcción de un diagrama de Pareto. (2020). Retrieved 31 May 2020, from https://rpubs.com/ctellez_gdl/58732
