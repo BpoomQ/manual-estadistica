@@ -51,15 +51,24 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
 ### Cuantitativas:
 Son variables cuantitativas si los valores que toman son numericos.
 
-* Discretas: Son discretas si sus valores son enteros.
-* Continuas: Son continuas si sus valores pueden tomar valores decimales.
+* **Discretas**: Son discretas si sus valores son enteros.
 
-### Cualitativas: 
+    *Ejemplo: La edad*
+
+* **Continuas**: Son continuas si entre dos valores son posibles infinitos valores intermedios.
+
+    *Ejemplo: Velocidad promedio*
+
+### Cualitativas:
 Son cuantitativas si sus valores no son numericos.
 
-* Nominales: Son nominales si sus valores no se pueden ordenar.
-* Ordinales: Son ordinales si sus valores se pueden ordenar.
+* **Nominales**: Son nominales si sus valores no se pueden ordenar.
 
+    *Ejemplo: Género, grupos sanguineos, Fumador(Sí, No)*
+
+* **Ordinales**: Son ordinales si sus valores se pueden ordenar.
+
+    *Ejemplo: Escolaridad, grado de satisfacción*
 
 # 2. Medidas de tendencia central {#medidas}
 
@@ -123,7 +132,7 @@ El coeficiente de variación, representado con los simbolos $cv$, sirve para com
 Se puede calcular el coeficiente de variación de la siguiente forma: $CV = 100(\frac{\sigma}{x})$. Donde $\sigma$ es la desviación estandar y $x$ es la media.
 
 
-|Variabilidad|Rango|
+|Variabilidad|Intervalo|
 ---|---|
 Poco variable|[0-30]|
 Variable|(30-70]|
