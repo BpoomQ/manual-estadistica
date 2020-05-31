@@ -115,8 +115,19 @@ max(maximo)
 minimo<-seq(1,59,2)
 min(minimo)
 ```
-    
-### Coeficiente de variación {#variacion}
+
+### 2.5 Coeficiente de variación {#variacion}
+
+El coeficiente de variación, representado con los simbolos $cv$, sirve para comparar conjuntos de datos y determinar que tan dispersos son. Esto es de mucha utilidad para determinar si la media de un conjunto de datos es una buena representación para estos.
+
+Se puede calcular el coeficiente de variación de la siguiente forma: $CV = 100(\frac{\sigma}{x})$. Donde $\sigma$ es la desviación estandar y $x$ es la media.
+
+
+|Variabilidad|Rango|
+---|---|
+Poco variable|[0-30]|
+Variable|(30-70]|
+Muy variable|(70-100]|
 
 ---
 
