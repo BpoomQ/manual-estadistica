@@ -62,10 +62,32 @@ Son cuantitativas si sus valores no son numericos.
 * Nominales: Son nominales si sus valores no se pueden ordenar.
 * Ordinales: Son ordinales si sus valores se pueden ordenar.
 
-# 2. Graficas
+---
+
+# 2. Medidas de tendencia central
+
+### 2.1 Moda
+
+### 2.2 Media
+
+### 2.3 Mediana
+
+### 2.4 Máximo y minimo
+
+---
+
+# 3. Medidas de asimetria y curtosis
+
+### 3.1 Curtosis
+
+### 3.2 Asimetria
+
+---
+
+# 4. Graficas
 
 
-### 2.1 BOXPLOT
+### 4.1 BOXPLOT
 
 #### ¿Qué es boxplot? 
 
@@ -89,40 +111,19 @@ input<-mtcars[,c('mpg','cyl')]
 boxplot(mpg~cyl, data = mtcars, xlab = "Number of Cylinders", ylab = "Miles Per Gallon", main = "Mileage Data", horizontal = T)
 ```
 
-### 2.2 Diagrama de Barras
+### 4.2 Diagrama de Barras
 
+### 4.3 Historigrama
 
-### 2.3 Historigrama
+### 4.4 Diagrama de Pastel
 
-### 2.4 Diagrama de Pastel
+### 4.5 Diagrama de Pareto
 
-### 2.5 Diagrama de Pareto
-
-### 2.6 Diagrama de Dispersión
-
----
-
-# 3. Medidas de tendencia central
-
-### 3.1 Moda
-
-### 3.2 Media
-
-### 3.3 Mediana
-
-### 3.4 Máximo y minimo
+### 4.6 Diagrama de Dispersión
 
 ---
 
-# 4. Coeficiente de variación
-
----
-
-# 5. Medidas de asimetria y curtosis
-
-### 5.1 Curtosis
-
-### 5.2 Asimetria
+# 5. Coeficiente de variación
 
 ---
 
