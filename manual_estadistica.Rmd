@@ -1,6 +1,8 @@
 ---
 title: "Manual de estadistica"
 output: html_notebook
+editor_options: 
+  chunk_output_type: inline
 ---
 **Elaborado por:**
 ---
@@ -102,14 +104,105 @@ El gráfico de Boxplot es el más utilizado para mostrar un resumen de gran cant
 
 # 6. Probabilidad de eventos
 
+La probabilidad de eventos es la probabilidad de que ocurra un resultado o evento específico, tambié conocida como probabilidad pronosticada. Esto es una recopilación  de resultados contenido en un espacio muestral **S**.
+
+Para entender este tema tomaremos como ejemplo un evento de que solamente se muestre la cara de una moneda. El primer paso es generar el espacio muestral.
+
+ * Se cargan las variables para el espacio muestral y despues lo imprimimos para confirmar como se distribuyó.
+ 
+```{r}
+mone1<-c("Cara","Sello")
+mone2<-mone1
+EspMue<-expand.grid(mone1,mone2)
+colnames(EspMue)<-c("Moneda 1", "Moneda 2")
+EspMue
+```
+ 
+ * Una vez que tenemos el espacio muestral creado verificamos que es verdadero donde hay una cara en la moneda 1.
+ 
+```{r}
+x<-EspMue$`Moneda 1`=="Cara"
+x
+```
+ 
+ * Realizamos el mismo proceso para verificar que sea verdadero donde haya una Cara en la moneda 2.
+ 
+```{r}
+y<-EspMue$`Moneda 2`=="Cara"
+y
+```
+ 
+* Verificamos que sea verdadero donde haya solamente una cara.
+```{r}
+cara<-xor(x,y)
+cara
+```
+
+* Finalmente generamos el evento.
+```{r}
+Evento<-EspMue[xor(x,y),]
+Evento
+```
+
+
 ---
 
 # 7. Intervalos de confianza
 
 ### 7.1 T-Test
 
+Esta prueba es un análisis usado para determinar la diferencia significativa entre los promedios de dos grupos y de esta manera entender si están relacionados en algunas características. Los datos a analizar deben tener distribución normal. La función a utilizar para realizar ese análisis es `t.test()`.
+
+Para poder entender como funciona este análisis tomaremos el siguiente ejemplo:
+ * Compararemos 2 muestras, ambas con variables aleatoreas.La primera muestra tendrá una **media de 10** mientras que la segunda tendrá una **media de 10.5** y finalmente aplicaremos la función `t.test()`
+ 
+```{r}
+x1 <- rnorm(100,10) #Esta será nuestra variable aleatoria de media 10
+x2 <- rnorm(100,10.5) #Esta será nuestra variable aleatoria de media 10.5
+test <- t.test(x1,x2) #Esta será nuestra prueba T de Student
+print(test)
+```
+ 
+
 ### 7.2 Anova
 
+
+Para el modelo de análisis de varianza (ANOVA) se pueden tomar dos o más grupos para comparar y de esta manera evaluar la importancia de uno o más factores; en este análisis se establece una hipótesis nula que dice que las medidas de la población son iguales y por otro lado se crea una hipótesis alternativa que establece que al menos una es diferente.
+
+Para explicar este modelo podemos usar el siguiente ejemplo:
+
+* Se quiere saber si los colores son atractivos para los insectos; para ello se diseñaron trampas con los siguientes colores: Amarillo, Azul, Blanco y Verde.
+
+    + Tomamos las dos variables, insectos que es nuestra variable de respuesta y colores que es nuestra variable factor. En este caso tomaremos los grupos y los pondremos en la consola para su análisis de la siguiente manera:
+    
+    Para el grupo de insectos usaremos la siguiente muestra:
+    `insectos <- c(16,11,20,21,14,7,37,32,15,25,39,41,21,12,14,17,13,17,45,59,48,46,38,47)`
+
+    Y para el grupo de colores usaremos la siguiente:
+    `colores <- as.factor(c(rep(c("azul", "verde",  "blanco", "amarillo"), each =6)))` 
+    
+    En este caso cada color se repetirá 6 veces para que los grupos a comparar sean del mismo tamaño.
+    
+    + Para realizar un análisis de Anova entre los dos grupos usamos el siguiente codigo:
+    `fm = aov ( lm(insectos ~ colores) )`
+    
+    + Tambien, si queremos un resumen del análisis anterior utilizamos la funcion _summary_ de la siguiente manera:
+    `summary(fm)`
+    
+    +Finalmente para ver los elementos generados por el análisis de Anova usamos el siguiente bloque de código:
+    `names(fm)`
+    
+```{r}
+require(stats)
+insectos <- c(16,11,20,21,14,7,37,32,15,25,39,41,21,12,14,17,13,17,45,59,48,46,38,47)
+colores <- as.factor(c(rep(c("azul", "verde",  "blanco", "amarillo"), each =6)))
+tapply(insectos, colores, mean)
+fm = aov ( lm(insectos ~ colores) )
+summary(fm)
+names(fm)
+```
+    
+    
 ---
 
 # 8. Referencias
