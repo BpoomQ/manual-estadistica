@@ -26,7 +26,7 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
     + [Maximo y minimo](#maxmin)
     + [Coeficiente de variación](#variacion)
 
-3. [Medidas de asimetria y curtosis](#asicurt)
+3. [Medidas de asimetría y curtosis](#asicurt)
     + [Curtosis](#curtosis)
     + [Asimetria](#asimetria)
 4. [Graficas](#graficas)
@@ -139,14 +139,38 @@ Muy variable|(70-100]|
 
 ### 3.1 Curtosis {#curtosis}
 
-### 3.2 Asimetria {#asimetria}
+Es la medida que indica que tan alta es la curva de distribución de los datos. Existen tres grupos para categorizar según su curtosis, las cuales son: *Planticúrtica, mesocúrtica y leptocúrtica*
 
+![Imagen extraida de niversoformulas.com/estadistica/descriptiva/asimetria-curtosis](https://www.universoformulas.com/imagenes/estadistica/descriptiva/curtosis.jpg)
+
+Para calcular la curtosis en R se usa el comando **kurtosis()**
+
+```{r}
+library(moments)
+datos <- c(8,5,9,10,12,7,2,6,8,9,10,7,7)
+kurtosis(datos)
+```
+
+
+### 3.2 Asimetría  {#asimetria}
+
+Es la medida que indica la simetría de la distribución de los datos de una variable con respecto a la media de estos. Existen tres grupos para categorizar según su asimetría, los cuales son:  *Asimetría positivo, simétrica y simetría negativa*
+
+![Imagen extraida de niversoformulas.com/estadistica/descriptiva/asimetria-curtosis](https://www.universoformulas.com/imagenes/estadistica/descriptiva/tipos-asimetria.jpg)
+
+Para calcular la asimetría en R, se usa el comando **skewness()**
+
+```{r}
+library(moments)
+datos <- c(8,5,9,10,12,7,2,6,8,9,10,7,7)
+skewness(datos)
+```
 
 
 ||$(-\inf, -0.5)$|$[0.5,0.5]$|$(0.5,\inf)$|
 ---|---|---|---|
 **Curtosis**|Platicúrtica|Mesocúrtica|Leptocúrtica|
-**Asimetria**|Sesgo positivo|Simetrica|Sesgo negativo|
+**Asimetría **|Asimetría positivo|Simétrica|Asimetría negativa|
 
 # 4. Graficas {#graficas}
 
