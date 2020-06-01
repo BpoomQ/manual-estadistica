@@ -42,6 +42,7 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
     + [Distribución binomial](#binomial)
     + [Distribución de Poisson](#poisson)
 6. [Probabilidad de eventos](#eventos)
+8. [Teorema de bayes](#bayes)
 7. [Intervalos de confianza](#confianza)
     + [T-Test](#ttest)
     + [Anova](#anova)
@@ -149,7 +150,7 @@ min(minimo)
 
 El coeficiente de variación, representado con los simbolos $cv$, sirve para comparar conjuntos de datos y determinar que tan dispersos son. Esto es de mucha utilidad para determinar si la media de un conjunto de datos es una buena representación para estos.
 
-Se puede calcular el coeficiente de variación de la siguiente forma: $CV = 100(\frac{\sigma}{x})$. Donde $\sigma$ es la desviación estandar y $x$ es la media.
+Se puede calcular el coeficiente de variación de la siguiente forma: $CV = 100(\frac{\sigma}{\bar{x}})$. Donde $\sigma$ es la desviación estandar y $\bar{x}$ es la media.
 
 |Variabilidad|Intervalo|
 ---|---|
@@ -464,8 +465,20 @@ Evento
 ```
 
 
----
+# Teorema de Bayes{#bayes}
 
+Permite calcular la probabilidad de que ocurra un evento, si se conocen las otras probabilidades que se encuentran en el mismo espacio muestral. 
+
+El teorema de bayes se representa con la siguiente formula: 
+
+$P(A_i|B) = \frac{P(B|A_i)P(A_i)}{P(B|A_1)+...+P(B|A_k)P(A_k)}$
+
+*Ejemplo:*
+
+![Extraido de rbjlabs](https://www.rbjlabs.com/wp-content/uploads/2018/06/teorema-de-bayes-ejemplo-238x300.png)
+  
+  $P(A|R)=\frac{(0.2)(0.07)}{(0.2)(0.07)+(0.25)(0.08)+(0.4)(0.05)+(0.15)(0.09)}=0.2074$
+  
 # 7. Intervalos de confianza {#confianza}
 
 ### 7.1 T-Test {#ttest}
@@ -594,3 +607,5 @@ Prueba U de Mann-Whitney. (2020). Retrieved 31 May 2020, from  https://bookdown.
 Prueba de Shapiro-Wilks. (2020). Retrieved 31 May 2020, from https://bookdown.org/dietrichson/metodos-cuantitativos/test-de-normalidad.html
 
 Pruebas de Normalidad. (2020). Retrieved 31 May 2020, from https://rpubs.com/MSiguenas/122473
+
+Teorema de Bayes | Explicación detallada y ejemplos. (2020). Retrieved 1 June 2020, from https://www.rbjlabs.com/probabilidad-y-estadistica/teorema-de-bayes/
