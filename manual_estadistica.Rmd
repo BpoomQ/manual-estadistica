@@ -44,7 +44,11 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
 7. [Intervalos de confianza](#confianza)
     + [T-Test](#ttest)
     + [Anova](#anova)
-8. [Referencias](#referencias)
+8. [Pruebas de hipotesis](#pruebas)
+    + [Prueba U de Mann-Whitney](#mann)
+    + [Prueba de Shapiro-Wilks](#shapiro)
+    + [Pruebas de Normalidad](#normalidad)
+9. [Referencias](#referencias)
 
 # 1. Tipos de variables: {#variables}
 
@@ -482,7 +486,58 @@ names(fm)
     
 ---
 
-# 8. Referencias {#referencias}
+# 8. Pruebas de hipótesis {#pruebas}
+
+### 8.1 Prueba U de Mann-Whitney {#mann}
+
+La prueba U de Mann-whitney la aplicamos cuando tenemos 2 muestras y queremos saber si hay un diferencia significativa entre las magnitudes de la variable que estamos analizando; en este caso usamos Mann-Whitney cuando los requisitos para la prueba de T-Test o la prueba Z no se cumplen.
+
+Para demostrar esta prueba llamaremos a la función **wilcox.test()** y usaremos el siguiente ejemplo:
+
+* Supongamos que tenemos datos diagnósticos de 4 mujeres y 5 hombres. Todos fueron diagnosticados con diabetes y tenemos la edad a la cual se les descrubrió la enfermedad. Queremos saber si hay diferencia en la edad entre hombres y mujeres. Los datos son:
+
+Siendo **H0** nuestra hipótesis por medio de la cual queremos saber si: *Existe diferencia en la edad entre Hombres y Mujeres.*
+
+Hombres: {19,22,16,29,24},
+Mujeres: {20,11,17,12}
+
+```{r}
+Hombres = c(19, 22, 16, 29, 24)
+Mujeres = c(20, 11, 17, 12)
+wilcox.test(Hombres, Mujeres)
+```
+Vemos que en este caso no podemos rechazar nuestra hipotesis **H0**.
+
+### 8.2 Prueba de Shapiro-Wilks {#shapiro}
+
+En la prueba de Shapiro-Wilks planteamos una hipótesis nula en la cual una muestra tomamos una muestra proveniente de una distribución normal, escogemos un nivel de significanza, por defecto 0,05 y tomamos una hipótesis alternativa que sostiene que la distribución no es normal.
+
+Como resultados podemos tomar:
+
+**H0**: Cuando la distribución es normal.
+**H1**: Cuando la distribución no es normal.
+
+Para realizar esta prueba usaremos la función **shapiro.test()**.
+
+Tomaremos como ejemplo los siguientes grupos:
+
+**Grupo A** :(15, 12, 11, 18, 15, 15, 9, 19, 14, 13, 11, 12, 18, 15, 16, 14, 16, 17, 15, 17, 13, 14, 13, 15, 17, 19, 17, 18, 16, 14)
+**Grupo B** :(11, 16, 14, 18, 6, 8, 9, 14, 12, 12, 10, 15, 12, 9, 13, 16, 17, 12, 8, 7, 15, 5, 14, 13, 13, 12, 11, 13, 11, 7)
+
+```{r}
+Grupo.A = c(15, 12, 11, 18, 15, 15, 9, 19, 14, 13, 11, 12, 18, 15, 16, 14, 16, 17, 15, 17, 13, 14, 13, 15, 17, 19, 17, 18, 16, 14)
+shapiro.test(Grupo.A)
+Grupo.B = c(11, 16, 14, 18, 6, 8, 9, 14, 12, 12, 10, 15, 12, 9, 13, 16, 17, 12, 8, 7, 15, 5, 14, 13, 13, 12, 11, 13, 11, 7)
+shapiro.test(Grupo.B)
+```
+Como podemos observar el valor de probabilidad **(p)** es muy superior a nuestro nivel elegido **(0,05)**, por lo que en este caso *no rechazamos la hipótesis nula*.
+
+### 8.3 Pruebas de normalidad {normalidad}
+
+
+---
+
+# 9. Referencias {#referencias}
 
 Asimetría y curtosis. (2020). Retrieved 31 May 2020, from https://www.universoformulas.com/estadistica/descriptiva/asimetria-curtosis
 
@@ -493,3 +548,11 @@ Diagrama de Pareto. (2020). Retrieved 31 May 2020, from https://es.wikipedia.org
 R boxplot() to Create Box Plot (With Numerous Examples). (2020). Retrieved 31 May 2020, from https://www.datamentor.io/r-programming/box-plot/
 
 RPubs - Construcción de un diagrama de Pareto. (2020). Retrieved 31 May 2020, from https://rpubs.com/ctellez_gdl/58732
+
+¿Qué Es ANOVA?. (2020). Retrieved 31 May 2020, from https://support.minitab.com/es-mx/minitab/18/help-and-how-to/modeling-statistics/anova/supporting-topics/basics/what-is-anova/
+
+Prueba U de Mann-Whitney. (2020). Retrieved 31 May 2020, from  https://bookdown.org/dietrichson/metodos-cuantitativos/prueba-u-de-mann-whitney.html
+
+Prueba de Shapiro-Wilks. (2020). Retrieved 31 May 2020, from https://bookdown.org/dietrichson/metodos-cuantitativos/test-de-normalidad.html
+
+Pruebas de Normalidad. (2020). Retrieved 31 May 2020, from https://rpubs.com/MSiguenas/122473
