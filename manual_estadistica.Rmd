@@ -275,7 +275,7 @@ pareto.chart(defectos, ylab = "Frecuencia", main = "Diagrama de pareto")
 
 ### 4.6 Diagrama de Dispersión {#dispersion}
 
-
+Este tipo de gráfico es usado para mostrar la relación entre dos variables numéricas continuas, usando puntos. Cada punto representa la intersección entre los valores de ambas variables.
 
 # 5. Distribuciones {#distribuciones}
 
