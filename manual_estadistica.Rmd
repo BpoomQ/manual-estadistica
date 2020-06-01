@@ -590,3 +590,5 @@ Prueba U de Mann-Whitney. (2020). Retrieved 31 May 2020, from  https://bookdown.
 Prueba de Shapiro-Wilks. (2020). Retrieved 31 May 2020, from https://bookdown.org/dietrichson/metodos-cuantitativos/test-de-normalidad.html
 
 Pruebas de Normalidad. (2020). Retrieved 31 May 2020, from https://rpubs.com/MSiguenas/122473
+
+Teorema de Bayes | Explicación detallada y ejemplos. (2020). Retrieved 1 June 2020, from https://www.rbjlabs.com/probabilidad-y-estadistica/teorema-de-bayes/
