@@ -275,7 +275,18 @@ pareto.chart(defectos, ylab = "Frecuencia", main = "Diagrama de pareto")
 
 ### 4.6 Diagrama de Dispersión {#dispersion}
 
-Este tipo de gráfico es usado para mostrar la relación entre dos variables numéricas continuas, usando puntos. Cada punto representa la intersección entre los valores de ambas variables.
+Este tipo de gráfico es usado para mostrar la relación entre dos variables numéricas continuas, usando puntos. Cada punto representa la intersección entre los valores de ambas variables. Para llamar a este diagrama usaremos la función **plot()**, a la cual le daremos vectores numéricos así como argumentos **X** y **Y**.
+
+Para mostrar este diagrama usaremos el siguiente bloque de codigo:
+
+```{r}
+airquality <- c("Ozone", "Solar.R", "Wind", "Temp", "Month", "Day") 
+names(airquality)
+plot(Ozone~Temp, main="Diagrama de Dispersión", xlab="Temperatura", ylab="Ozono")
+```
+
+
+
 
 # 5. Distribuciones {#distribuciones}
 
