@@ -20,12 +20,12 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
 
 1. [Tipos de variables](#variables).
 2. [Medidas de tendencia central](#medidas)
+    + [Desviación Estándar](#desviacion)
     + [Moda](#moda)
     + [Media](#media)
     + [Mediana](#mediana)
     + [Maximo y minimo](#maxmin)
     + [Coeficiente de variación](#variacion)
-
 3. [Medidas de asimetría y curtosis](#asicurt)
     + [Curtosis](#curtosis)
     + [Asimetria](#asimetria)
@@ -77,7 +77,24 @@ Son cuantitativas si sus valores no son numericos.
 
 # 2. Medidas de tendencia central {#medidas}
 
-### 2.1 Moda {#moda}
+### 2.1 Desviación estándar {#desviacion}
+
+Para calcular el promedio de un conjunto de datos, se utiliza la función **sd()**, la cual retorna un resultado. A continuación, para explicar su uso se mostrará un ejemplo:
+
+* Se realiza un cargue de datos en la variable x de la siguiente manera:
+
+```{r}
+desviacion<- c(0, 3, 6, 7, 9, 12)
+```
+
+* Ejecutamos la función y enviamos por parámetro la variable donde cargamos los datos.
+
+```{r}
+sd(desviacion)
+```
+
+
+### 2.2 Moda {#moda}
 
 En un grupo determinado la **moda** es el valor con mayor frecuencia en una distribución de datos. Para calcularla usamos la función `table(variable)` el cual nos dice cuantas veces aparece cada número dentro de un vector, por lo que la moda será el número que más veces se repita.
 
@@ -88,7 +105,7 @@ x<-seq(1,50,2)
 table(x)
 ```
 
-### 2.2 Media {#media}
+### 2.3 Media {#media}
 
 En un espacio muestral la **Media** es el valor que resulta de sumar todos los numeros en un conjunto de datos y luego dividir el número resultante entre el número de valores en el conjunto.
 
@@ -100,7 +117,7 @@ media<-c(4,7,6,7,5,8,9,4,12,3,5,6,8,7,4,10)
 arithmetic.mean(media)
 ```
 
-### 2.3 Mediana {#mediana}
+### 2.4 Mediana {#mediana}
 
 La **mediana** representa el dato en la posición central dentro de un conjunto de datos cuando este se ordena de menor a mayor. Para realizar este análisis llamaremos a la función **median()**
 
@@ -111,7 +128,7 @@ mediana<-seq(1,50,2)
 median(mediana)
 ```
 
-### 2.4 Máximo y minimo {#maxmin}
+### 2.5 Máximo y minimo {#maxmin}
 
 El **máximo** y el **minimo** son respectivamente el valor más grande y el valor más pequeño en un grupo determinado. Para llamar a estas funciones usaremos **max()** y **min()**
 
@@ -128,7 +145,7 @@ minimo<-seq(1,59,2)
 min(minimo)
 ```
 
-### 2.5 Coeficiente de variación {#variacion}
+### 2.6 Coeficiente de variación {#variacion}
 
 El coeficiente de variación, representado con los simbolos $cv$, sirve para comparar conjuntos de datos y determinar que tan dispersos son. Esto es de mucha utilidad para determinar si la media de un conjunto de datos es una buena representación para estos.
 
