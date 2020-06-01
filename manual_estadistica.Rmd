@@ -32,6 +32,7 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
 4. [Graficas](#graficas)
     + [Boxplot](#boxplot)
     + [Diagrama de barras](#barras)
+    + [Diagrama de barras apiladas](#barras_apliadas)
     + [Historigrama](#histograma)
     + [Diagrama de pastel](#pastel)
     + [Diagrama de Pareto](#pareto)
@@ -218,6 +219,24 @@ datos<-table(xf)
 barplot(datos, main = "Gráfica de educación", xlab = "Nivel educativo", ylab = "Frecuencia", col = c("royalblue", "seagreen", "purple", "grey"))
 ```
 
+### Diagrama de barras apiladas {#barras_apliadas}
+
+Este diagrama se puede utilizar para mostrar dos o más conjuntos de datos uno segudo del otro, dejando evidencia las categorias que dividen a otra categoria más grande. Esto con el fin, de comparar las cantidades totales, ya sea porcentual o no.
+
+Para realizar este grafico en R, se puede usar la libreria **ggplot2** y más especificamente usar la función **ggplot**
+
+
+```{r}
+library(ggplot2)
+dat <- data.frame( Frutas=c("Manzana", "Manzana", "Naranja", "Naranja", "Naranja", "Naranja",
+                      "Naranja", "Pera", "Pera", "Pera"), Genero=c("Hombre", "Mujer",
+                        "Hombre", "Mujer", "Hombre", "Hombre", "Mujer", "Mujer",
+                      "Mujer", "Hombre") )  
+
+ggplot(dat, aes(y = Frutas)) + geom_bar(aes(fill = Genero), position = 'fill')
+```
+
+
 ### 4.3 Historigrama {#histograma}
 
 Es un grafico muy utilizado para representar la cuenta de cada dato (la frecuencia). Para la realización de este diagrama se pueden usar variables cuantitativas.
@@ -273,16 +292,18 @@ pareto.chart(defectos, ylab = "Frecuencia", main = "Diagrama de pareto")
 ```
 
 
-### 4.6 Diagrama de Dispersión {#dispersion}
+### 4.6 Diagrama de dispersión {#dispersion}
 
 Este tipo de gráfico es usado para mostrar la relación entre dos variables numéricas continuas, usando puntos. Cada punto representa la intersección entre los valores de ambas variables. Para llamar a este diagrama usaremos la función **plot()**, a la cual le daremos vectores numéricos así como argumentos **X** y **Y**.
 
 Para mostrar este diagrama usaremos el siguiente bloque de codigo:
 
 ```{r}
-airquality <- c("Ozone", "Solar.R", "Wind", "Temp", "Month", "Day") 
-names(airquality)
-plot(Ozone~Temp, main="Diagrama de Dispersión", xlab="Temperatura", ylab="Ozono")
+grasas <- read.table('http://verso.mat.uam.es/~joser.berrendero/datos/EdadPesoGrasas.txt', header = TRUE)
+regresion <- lm(grasas ~ edad, data = grasas)
+summary(regresion)
+plot(grasas$edad, grasas$grasas, xlab='Edad', ylab='Grasas')
+abline(regresion)
 ```
 
 
