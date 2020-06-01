@@ -45,6 +45,7 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
 7. [Teorema de bayes](#bayes)
 8. [Intervalos de confianza](#confianza)
 9. [Pruebas de hipotesis](#pruebas)
+    + [Chi cuadrado](#chi)
     + [Prueba U de Mann-Whitney](#mann)
     + [Prueba de Shapiro-Wilks](#shapiro)
     + [T-Test](#ttest)
@@ -506,7 +507,54 @@ lim.sup
 
 # 9. Pruebas de hipótesis {#pruebas}
 
-### 9.1 Prueba U de Mann-Whitney {#mann}
+### 9.1 Chi cuadrado {#chi}
+ 
+Es la prueba más utilizada para anlizar variables cualitativas. Esta prueba se realiza para evaluar la independencia de los datos, la cual consiste en evaluar probabilidad de una difrencia igual o mayor a la que existe entre los datos y las frecuencias esperadas segun la hipótesis nula.
+
+*Ejemplo:*
+
+Table: Observado
+
+||Hombre|Mujer|Total|
+---|---|---|---|
+Apple|10|5|15|
+Android|15|20|35|
+Huawei|40|30|70|
+||65|55|120|
+
+Ahora se debe calcular el valor esperado de la siguiente forma para la celdas $\frac{(totalColumna)(totalFila)}{totalDatos}$
+  
+**Ejemplo** la primera celda: $\frac{(65)(15)}{120}=8.13$
+
+Table: Esperado
+
+||Hombre|Mujer|
+---|---|---|
+Apple|8,13|6,88|
+Android|18,96|16,04|
+Huawei|37,92|32,08|
+
+Luego se halla el cuadrado de la diferencia del observado y el esperado, sobre la cantidad de los datos. $\frac{(observado-esperado)^2}{observado}$
+
+||Hombre|Mujer|
+---|---|---|
+Apple|0,43|0,51|
+Android|0,83|0,98|
+Huawei|0,11|0,14|
+
+Se suman los valores de la tabla, para este caso, $experimental=3$.
+
+Luego procedemos a calcular el grado de liberdad, la formula para realizarlo es $(Filas-1)+(Columnas-1)$. Para este ejemplo $(3-1)(2-1)=2$
+
+Adicionalmente, se tiene que buscar el valor critico en la distribución de chi cuadrado. Para esto se escoge la columna segun los grados de libertad. Como en este ejercicio no se dice cual es el grado de confianza, asumimos que es el 95%, por lo cual debemos buscar el valor segun $1-0.95=0.05$
+
+![](https://image.slidesharecdn.com/tablachi-cuadrado-130922103507-phpapp02/95/tabla-chi-cuadrado-1-638.jpg?cb=1379846134)
+
+En este caso el valor critico es $5,991$.
+
+Para finalizar, se debe aceptar la hipotesis nula, la cual nos dice que no hay relacion entre los sistemas operativos y el genero.
+
+### 9.2 Prueba U de Mann-Whitney {#mann}
 
 La prueba U de Mann-whitney la aplicamos cuando tenemos 2 muestras y queremos saber si hay un diferencia significativa entre las magnitudes de la variable que estamos analizando; en este caso usamos Mann-Whitney cuando los requisitos para la prueba de T-Test o la prueba Z no se cumplen.
 
@@ -526,7 +574,7 @@ wilcox.test(Hombres, Mujeres)
 ```
 Vemos que en este caso no podemos rechazar nuestra hipotesis **H0**.
 
-### 9.2 Prueba de Shapiro-Wilks {#shapiro}
+### 9.3 Prueba de Shapiro-Wilks {#shapiro}
 
 En la prueba de Shapiro-Wilks planteamos una hipótesis nula en la cual una muestra tomamos una muestra proveniente de una distribución normal, escogemos un nivel de significanza, por defecto **0,05** y tomamos una hipótesis alternativa que sostiene que la distribución no es normal.
 
@@ -551,7 +599,7 @@ shapiro.test(Grupo.B)
 Como podemos observar el valor de probabilidad **(p)** es muy superior a nuestro nivel elegido **(0,05)**, por lo que en este caso *no rechazamos la hipótesis nula*.
 
 
-### 9.3 T-Test {#ttest}
+### 9.4 T-Test {#ttest}
 
 Esta prueba es un análisis usado para determinar la diferencia significativa entre los promedios de dos grupos y de esta manera entender si están relacionados en algunas características. Los datos a analizar deben tener distribución normal. La función a utilizar para realizar ese análisis es `t.test()`.
 
@@ -566,7 +614,7 @@ print(test)
 ```
  
 
-### 9.4 Anova {#anova}
+### 9.5 Anova {#anova}
 
 
 Para el modelo de análisis de varianza (ANOVA) se pueden tomar dos o más grupos para comparar y de esta manera evaluar la importancia de uno o más factores; en este análisis se establece una hipótesis nula que dice que las medidas de la población son iguales y por otro lado se crea una hipótesis alternativa que establece que al menos una es diferente.
