@@ -14,7 +14,7 @@ editor_options:
 ## Introducción
 R Studio es un lenguaje de programación es una serie de reglas que están diseñadas para realizar procesos en una computadora, es un lenguaje para el cálculo estadístico y la generación de gráficos, que ofrece una gran variedad de técnicas estadísticas y gráficas.
 
-A continuación definiremos e ilustraremos el como se pueden usar estas funciones dentro de este software y como se desarrollan.
+A continuación, definiremos e ilustraremos el cómo se pueden usar estas funciones dentro de este software y como se desarrollan.
 
 ## Lista de temas a tratar:
 
@@ -24,16 +24,16 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
     + [Moda](#moda)
     + [Media](#media)
     + [Mediana](#mediana)
-    + [Maximo y minimo](#maxmin)
+    + [Máximo y mínimo](#maxmin)
     + [Coeficiente de variación](#variacion)
 3. [Medidas de asimetría y curtosis](#asicurt)
     + [Curtosis](#curtosis)
-    + [Asimetria](#asimetria)
-4. [Graficas](#graficas)
+    + [Asimetría](#asimetria)
+4. [Gráficas](#graficas)
     + [Boxplot](#boxplot)
     + [Diagrama de barras](#barras)
     + [Diagrama de barras apiladas](#barras_apliadas)
-    + [Historigrama](#histograma)
+    + [Histograma](#histograma)
     + [Diagrama de pastel](#pastel)
     + [Diagrama de Pareto](#pareto)
     + [Diagrama de dispersión](#dispersion)
@@ -42,9 +42,9 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
     + [Distribución binomial](#binomial)
     + [Distribución de Poisson](#poisson)
 6. [Probabilidad de eventos](#eventos)
-7. [Teorema de bayes](#bayes)
+7. [Teorema de Bayes](#bayes)
 8. [Intervalos de confianza](#confianza)
-9. [Pruebas de hipotesis](#pruebas)
+9. [Pruebas de hipótesis](#pruebas)
     + [Chi cuadrado](#chi)
     + [Prueba U de Mann-Whitney](#mann)
     + [Prueba de Shapiro-Wilks](#shapiro)
@@ -55,7 +55,7 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
 # 1. Tipos de variables: {#variables}
 
 ### Cuantitativas:
-Son variables cuantitativas si los valores que toman son numericos.
+Son variables cuantitativas si los valores que toman son numéricos.
 
 * **Discretas**: Son discretas si sus valores son enteros.
 
@@ -66,11 +66,11 @@ Son variables cuantitativas si los valores que toman son numericos.
     *Ejemplo: Velocidad promedio*
 
 ### Cualitativas:
-Son cuantitativas si sus valores no son numericos.
+Son cuantitativas si sus valores no son numéricos.
 
 * **Nominales**: Son nominales si sus valores no se pueden ordenar.
 
-    *Ejemplo: Género, grupos sanguineos, Fumador(Sí, No)*
+    *Ejemplo: Género, grupos sanguíneos, Fumador(Sí, No)*
 
 * **Ordinales**: Son ordinales si sus valores se pueden ordenar.
 
@@ -97,9 +97,9 @@ sd(desviacion)
 
 ### 2.2 Moda {#moda}
 
-En un grupo determinado la **moda** es el valor con mayor frecuencia en una distribución de datos. Para calcularla usamos la función `table(variable)` el cual nos dice cuantas veces aparece cada número dentro de un vector, por lo que la moda será el número que más veces se repita.
+En un grupo determinado la **moda** es el valor con mayor frecuencia en una distribución de datos. Para calcularla usamos la función `table(variable)` el cual nos dice cuántas veces aparece cada número dentro de un vector, por lo que la moda será el número que más veces se repita.
 
-Un ejemplo  lo podemos ver cargando los datos y haciendo uso de la función **table()**
+Un ejemplo lo podemos ver cargando los datos y haciendo uso de la función **table()**
 
 ```{r}
 x<-seq(1,50,2)
@@ -108,7 +108,7 @@ table(x)
 
 ### 2.3 Media {#media}
 
-En un espacio muestral la **Media** es el valor que resulta de sumar todos los numeros en un conjunto de datos y luego dividir el número resultante entre el número de valores en el conjunto.
+En un espacio muestral la **Media** es el valor que resulta de sumar todos los números en un conjunto de datos y luego dividir el número resultante entre el número de valores en el conjunto.
 
 Para este ejemplo tomaremos un conjunto de datos de la siguiente manera:
 
@@ -148,9 +148,9 @@ min(minimo)
 
 ### 2.6 Coeficiente de variación {#variacion}
 
-El coeficiente de variación, representado con los simbolos $cv$, sirve para comparar conjuntos de datos y determinar que tan dispersos son. Esto es de mucha utilidad para determinar si la media de un conjunto de datos es una buena representación para estos.
+El coeficiente de variación, representado con los símbolos $cv$, sirve para comparar conjuntos de datos y determinar qué tan dispersos son. Esto es de mucha utilidad para determinar si la media de un conjunto de datos es una buena representación para estos.
 
-Se puede calcular el coeficiente de variación de la siguiente forma: $CV = 100(\frac{\sigma}{\bar{x}})$. Donde $\sigma$ es la desviación estandar y $\bar{x}$ es la media.
+Se puede calcular el coeficiente de variación de la siguiente forma: $CV = 100(\frac{\sigma}{\bar{x}})$. Donde $\sigma$ es la desviación estándar y $\bar{x}$ es la media.
 
 |Variabilidad|Intervalo|
 ---|---|
@@ -164,7 +164,7 @@ Muy variable|(70-100]|
 
 Es la medida que indica que tan alta es la curva de distribución de los datos. Existen tres grupos para categorizar según su curtosis, las cuales son: *Planticúrtica, mesocúrtica y leptocúrtica*
 
-![Imagen extraida de niversoformulas.com/estadistica/descriptiva/asimetria-curtosis](https://www.universoformulas.com/imagenes/estadistica/descriptiva/curtosis.jpg)
+![](https://www.universoformulas.com/imagenes/estadistica/descriptiva/curtosis.jpg)
 
 Para calcular la curtosis en R se usa el comando **kurtosis()**
 
@@ -179,7 +179,7 @@ kurtosis(datos)
 
 Es la medida que indica la simetría de la distribución de los datos de una variable con respecto a la media de estos. Existen tres grupos para categorizar según su asimetría, los cuales son:  *Asimetría positivo, simétrica y simetría negativa*
 
-![Imagen extraida de niversoformulas.com/estadistica/descriptiva/asimetria-curtosis](https://www.universoformulas.com/imagenes/estadistica/descriptiva/tipos-asimetria.jpg)
+![](https://www.universoformulas.com/imagenes/estadistica/descriptiva/tipos-asimetria.jpg)
 
 Para calcular la asimetría en R, se usa el comando **skewness()**
 
@@ -220,7 +220,7 @@ input<-mtcars[,c('mpg','cyl')]
 boxplot(mpg~cyl, data = mtcars, xlab = "Number of Cylinders", ylab = "Miles Per Gallon", main = "Mileage Data", horizontal = T)
 ```
 
-### 4.2 Diagrama de Barras {#barras}
+### 4.2 Diagrama de barras {#barras}
 
 Es un gráfico principalmente utilizado para representar datos de variables cuantitativas. Con el fin de mostrar la frecuencia con la que se han observado los datos de una variable discreta, con una barra para cada categoría de esta variable.
 
@@ -243,9 +243,9 @@ barplot(datos, main = "Gráfica de educación", xlab = "Nivel educativo", ylab =
 
 ### Diagrama de barras apiladas {#barras_apliadas}
 
-Este diagrama se puede utilizar para mostrar dos o más conjuntos de datos uno segudo del otro, dejando evidencia las categorias que dividen a otra categoria más grande. Esto con el fin, de comparar las cantidades totales, ya sea porcentual o no.
+Este diagrama se puede utilizar para mostrar dos o más conjuntos de datos uno seguido del otro, dejando evidencia las categorías que dividen a otra categoría más grande. Esto con el fin, de comparar las cantidades totales, ya sea porcentual o no.
 
-Para realizar este grafico en R, se puede usar la libreria **ggplot2** y más especificamente usar la función **ggplot**
+Para realizar este gráfico en R, se puede usar la librería **ggplot2** y más específicamente usar la función **ggplot**
 
 
 ```{r}
@@ -259,11 +259,11 @@ ggplot(dat, aes(y = Frutas)) + geom_bar(aes(fill = Genero), position = 'fill')
 ```
 
 
-### 4.3 Historigrama {#histograma}
+### 4.3 Histograma {#histograma}
 
-Es un grafico muy utilizado para representar la cuenta de cada dato (la frecuencia). Para la realización de este diagrama se pueden usar variables cuantitativas.
+Es un gráfico muy utilizado para representar la cuenta de cada dato (la frecuencia). Para la realización de este diagrama se pueden usar variables cuantitativas.
 
-Para realizar un histograma es con la función **hist()** y se le pasa por parámetro el conjunto de datos numericos.
+Para realizar un histograma es con la función **hist()** y se le pasa por parámetro el conjunto de datos númericos.
 
     hist(datos)
 
@@ -278,7 +278,7 @@ Es un gráfico al cual se acude muy frecuentemente para representar porcentajes,
 
 La sintaxis para graficar es
 
-	  Pie(proporciones,  labes = etiquetas, main = titulo)
+	  Pie(proporciones, labels = etiquetas, main = titulo)
 
 * **x:** Lista con los valores
 * **labels:** Descripción de las porciones.
@@ -295,7 +295,7 @@ pie(proporciones, labels = etiquetas, main = titulo)
 
 ### 4.5 Diagrama de Pareto {#pareto}
 
-Este diagrama es normalmente utilizado para realizar una comparación de variables cualitativas de forma ordenada. Para la lectura de este diagrama, hay que tener en cuenta la distribucion 80% y 20%.
+Este diagrama es normalmente utilizado para realizar una comparación de variables cualitativas de forma ordenada. Para la lectura de este diagrama, hay que tener en cuenta la distribución 80% y 20%.
 
 Para construir este diagrama se utiliza el paquete qcc. Adicionalmente se usan los siguientes comandos:
 
@@ -318,7 +318,7 @@ pareto.chart(defectos, ylab = "Frecuencia", main = "Diagrama de pareto")
 
 Este tipo de gráfico es usado para mostrar la relación entre dos variables numéricas continuas, usando puntos. Cada punto representa la intersección entre los valores de ambas variables. Para llamar a este diagrama usaremos la función **plot()**, a la cual le daremos vectores numéricos así como argumentos **X** y **Y**.
 
-Para mostrar este diagrama usaremos el siguiente bloque de codigo:
+Para mostrar este diagrama usaremos el siguiente bloque de código:
 
 ```{r}
 grasas <- read.table('http://verso.mat.uam.es/~joser.berrendero/datos/EdadPesoGrasas.txt', header = TRUE)
@@ -335,7 +335,7 @@ abline(regresion)
 
 ### 5.1 Distribución normal {#normal}
 
-La distribución normal es un modelo mediante el cual se aproxima el valor de una variable aleatoria a un valor ideal.Para obtener los valores basados en una distribución normal existen 4 funciones:
+La distribución normal es un modelo mediante el cual se aproxima el valor de una variable aleatoria a un valor ideal. Para obtener los valores basados en una distribución normal existen 4 funciones:
 
     dnorm: el cual devuelve resultados de la función de densidad. Se usa de la siguiente manera:
     `dnorm(x, mean = 0, sd = 1, log = F)`
@@ -349,16 +349,16 @@ curve(dnorm(x, 0, 2), -8, 8)
 Para la distribución binomial utilizamos la función **dbinom()** la cual da las probabilidades para varios valores de la variable binomial. Esta función requiere de tres argumentos los cuales son los siguientes:
 
 * El primer argumento para esta función debe ser un vector de cuantiles (los valores posibles de la variable aleatoria X).
-* El segundo y tercer argumento son los parámetros definidos de la distribución, a saber, n (el núimero de ensayos independientes) y p (la probabilidad de exito en cada ensayo).
+* El segundo y tercer argumento son los parámetros definidos de la distribución, a saber, n (el número de ensayos independientes) y p (la probabilidad de éxito en cada ensayo).
 
-Para explicar esta función tomaremos como ejemplo la novela de un autor que ha tenido gran exito hasta el punto que el 80% de los lectores ya la han leido. Un grupo de 4 personas son aficionados a la lectura y presentan los siguientes dos casos:
+Para explicar esta función tomaremos como ejemplo la novela de un autor que ha tenido gran éxito hasta el punto de que el 80% de los lectores ya la han leído. Un grupo de 4 personas son aficionados a la lectura y presentan los siguientes dos casos:
 
 A. ¿Cuál es la probabilidad de que en el grupo hayan leído la novela 2 personas?
 
 ```{r}
 dbinom(2,4,0.80)
 ```
-B. La probabilidad de exito y la probabilidad de fracaso de leer la novela en un grupo de 4 personas.
+B. La probabilidad de éxito y la probabilidad de fracaso de leer la novela en un grupo de 4 personas.
 
 ```{r}
 a=4
@@ -372,8 +372,8 @@ fx.binomial
 
 ### 5.3 Distribución de Poisson {#poisson}
 
- La distribución de Poisson es un modelo que se aplica a las ocurrencias de algún suceso durante un intervalo determinado. la función para llamar a esta distribución  es **dpois()**.
- 
+ La distribución de Poisson es un modelo que se aplica a las ocurrencias de algún suceso durante un intervalo determinado. la función para llamar a esta distribución es **dpois()**.
+
 * dpois(x, lambda, log = F): Devuelve resultados de la función de densidad.
 
 Los parámetros que se pueden pasar a esta función son los siguientes:
@@ -390,31 +390,31 @@ lower.tail: Parámetro booleano, si es TRUE las probabilidades son P[X ≤ x], d
 
 Para explicar esta distribución tomaremos como ejemplo una central telefónica en un hotel el cual recibe un número determinado de llamadas por minuto el cual sigue la distribución de Poisson con parámetro λ = 0.5 en el cual deberemos determinar:
 
-A. Cual es la probabilidad de que en un minuto al azar se reciba solo una llamada, para el cual usaremos el siguiente código:
+A. Cuál es la probabilidad de que en un minuto al azar se reciba solo una llamada, para el cual usaremos el siguiente código:
 
 ```{r}
 dpois(c(1), 0.5)
 ```
 
-B. Cual es la probabilidad de que en un minuto al azar se reciban como máximo dos llamadas, para el cual usaremos el siguiente bloque de código:
+B. Cuál es la probabilidad de que en un minuto al azar se reciban como máximo dos llamadas, para el cual usaremos el siguiente bloque de código:
 
 ```{r}
 ppois(c(2), 0.5)
 ```
 
-C. Cual es la probabilidad de que en un minuto al azar se reciban mas de tres llamadas por minuto, para el cual usaremos el siguiente código:
+C. Cuál es la probabilidad de que en un minuto al azar se reciban mas de tres llamadas por minuto, para el cual usaremos el siguiente código:
 
 ```{r}
 ppois(c(3), 0.5, lower.tail=F)
 ```
 
-D. Cual es la probabilidad de que en un minuto al azar se reciban cinco llamadas en dos minutos, para lo cual usaremos el siguiente codigo:
+D. Cuál es la probabilidad de que en un minuto al azar se reciban cinco llamadas en dos minutos, para lo cual usaremos el siguiente código:
 
 ```{r}
 dpois(c(5), 1)
 ```
 
-E. Cual es la probabilidad mínima que debe recibir la central por minuto para que exista una probabilidad del 98.5%, para el cual usaremos el siguiente codigo:
+E. Cuál es la probabilidad mínima que debe recibir la central por minuto para que exista una probabilidad del 98.5%, para el cual usaremos el siguiente código:
 
 ```{r}
 qpois(c(0.985), 0.5)
@@ -424,11 +424,11 @@ qpois(c(0.985), 0.5)
 
 # 6. Probabilidad de eventos {#eventos}
 
-La probabilidad de eventos es la probabilidad de que ocurra un resultado o evento específico, tambié conocida como probabilidad pronosticada. Esto es una recopilación  de resultados contenido en un espacio muestral **S**.
+La probabilidad de eventos es la probabilidad de que ocurra un resultado o evento específico, también conocida como probabilidad pronosticada. Esto es una recopilación de resultados contenido en un espacio muestral **S**.
 
 Para entender este tema tomaremos como ejemplo un evento de que solamente se muestre la cara de una moneda. El primer paso es generar el espacio muestral.
 
- * Se cargan las variables para el espacio muestral y despues lo imprimimos para confirmar como se distribuyó.
+ * Se cargan las variables para el espacio muestral y después lo imprimimos para confirmar como se distribuyó.
  
 ```{r}
 mone1<-c("Cara","Sello")
@@ -475,16 +475,16 @@ $P(A_i|B) = \frac{P(B|A_i)P(A_i)}{P(B|A_1)+...+P(B|A_k)P(A_k)}$
 
 *Ejemplo:*
 
-![Extraido de rbjlabs](https://www.rbjlabs.com/wp-content/uploads/2018/06/teorema-de-bayes-ejemplo-238x300.png)
+![](https://www.rbjlabs.com/wp-content/uploads/2018/06/teorema-de-bayes-ejemplo-238x300.png)
   
   $P(A|R)=\frac{(0.2)(0.07)}{(0.2)(0.07)+(0.25)(0.08)+(0.4)(0.05)+(0.15)(0.09)}=0.2074$
   
 # 8. Intervalos de confianza {#confianza}
 
-El intervalo de confianza es el rango entre dos valores de una muestra en el cual evaluamos la estimación del parametro de una población. Para poder calcularlo determinamos:
-* Una estimación a un punto en el cual buscamos un parametro de la población usando los datos dentro de la muestra.
-* Un margen de error el el cual cuantificamos el posible error del modelo planteado e indicamos la precisión del mismo.
-  Mientras mayor sea el margen de error, más ancho será el intervalo y menos seguro se podrá estar del valorde la estimación de punto. 
+El intervalo de confianza es el rango entre dos valores de una muestra en el cual evaluamos la estimación del parámetro de una población. Para poder calcularlo determinamos:
+* Una estimación a un punto en el cual buscamos un parámetro de la población usando los datos dentro de la muestra.
+* Un margen de error en el cual cuantificamos el posible error del modelo planteado e indicamos la precisión de este.
+  Mientras mayor sea el margen de error, más ancho será el intervalo y menos seguro se podrá estar del valor de la estimación del punto. 
 
 ```{r}
 qnorm(0.05,0,1)
@@ -509,7 +509,7 @@ lim.sup
 
 ### 9.1 Chi cuadrado {#chi}
  
-Es la prueba más utilizada para anlizar variables cualitativas. Esta prueba se realiza para evaluar la independencia de los datos, la cual consiste en evaluar probabilidad de una difrencia igual o mayor a la que existe entre los datos y las frecuencias esperadas segun la hipótesis nula.
+Es la prueba más utilizada para analizar variables cualitativas. Esta prueba se realiza para evaluar la independencia de los datos, la cual consiste en evaluar probabilidad de una diferencia igual o mayor a la que existe entre los datos y las frecuencias esperadas según la hipótesis nula.
 
 *Ejemplo:*
 
@@ -544,23 +544,23 @@ Huawei|0,11|0,14|
 
 Se suman los valores de la tabla, para este caso, $experimental=3$.
 
-Luego procedemos a calcular el grado de liberdad, la formula para realizarlo es $(Filas-1)+(Columnas-1)$. Para este ejemplo $(3-1)(2-1)=2$
+Luego procedemos a calcular el grado de libertad, la fórmula para realizarlo es $(Filas-1)+(Columnas-1)$. Para este ejemplo $(3-1)(2-1)=2$
 
-Adicionalmente, se tiene que buscar el valor critico en la distribución de chi cuadrado. Para esto se escoge la columna segun los grados de libertad. Como en este ejercicio no se dice cual es el grado de confianza, asumimos que es el 95%, por lo cual debemos buscar el valor segun $1-0.95=0.05$
+Adicionalmente, se tiene que buscar el valor critico en la distribución de chi cuadrado. Para esto se escoge la columna según los grados de libertad. Como en este ejercicio no se dice cuál es el grado de confianza, asumimos que es el 95%, por lo cual debemos buscar el valor según $1-0.95=0.05$
 
 ![](https://image.slidesharecdn.com/tablachi-cuadrado-130922103507-phpapp02/95/tabla-chi-cuadrado-1-638.jpg?cb=1379846134)
 
 En este caso el valor critico es $5,991$.
 
-Para finalizar, se debe aceptar la hipotesis nula, la cual nos dice que no hay relacion entre los sistemas operativos y el genero.
+Para finalizar, se debe aceptar la hipótesis nula, la cual nos dice que no hay relación entre los sistemas operativos y el género.
 
 ### 9.2 Prueba U de Mann-Whitney {#mann}
 
-La prueba U de Mann-whitney la aplicamos cuando tenemos 2 muestras y queremos saber si hay un diferencia significativa entre las magnitudes de la variable que estamos analizando; en este caso usamos Mann-Whitney cuando los requisitos para la prueba de T-Test o la prueba Z no se cumplen.
+La prueba U de Mann-Whitney la aplicamos cuando tenemos 2 muestras y queremos saber si hay una diferencia significativa entre las magnitudes de la variable que estamos analizando; en este caso usamos Mann-Whitney cuando los requisitos para la prueba de T-Test o la prueba Z no se cumplen.
 
 Para demostrar esta prueba llamaremos a la función **wilcox.test()** y usaremos el siguiente ejemplo:
 
-* Supongamos que tenemos datos diagnósticos de 4 mujeres y 5 hombres. Todos fueron diagnosticados con diabetes y tenemos la edad a la cual se les descrubrió la enfermedad. Queremos saber si hay diferencia en la edad entre hombres y mujeres. Los datos son:
+* Supongamos que tenemos datos diagnósticos de 4 mujeres y 5 hombres. Todos fueron diagnosticados con diabetes y tenemos la edad a la cual se les descubrió la enfermedad. Queremos saber si hay diferencia en la edad entre hombres y mujeres. Los datos son:
 
 Siendo **H0** nuestra hipótesis por medio de la cual queremos saber si: *Existe diferencia en la edad entre Hombres y Mujeres.*
 
@@ -572,11 +572,11 @@ Hombres = c(19, 22, 16, 29, 24)
 Mujeres = c(20, 11, 17, 12)
 wilcox.test(Hombres, Mujeres)
 ```
-Vemos que en este caso no podemos rechazar nuestra hipotesis **H0**.
+Vemos que en este caso no podemos rechazar nuestra hipótesis **H0**.
 
 ### 9.3 Prueba de Shapiro-Wilks {#shapiro}
 
-En la prueba de Shapiro-Wilks planteamos una hipótesis nula en la cual una muestra tomamos una muestra proveniente de una distribución normal, escogemos un nivel de significanza, por defecto **0,05** y tomamos una hipótesis alternativa que sostiene que la distribución no es normal.
+En la prueba de Shapiro-Wilks planteamos una hipótesis nula en la cual tomamos una muestra proveniente de una distribución normal, escogemos un nivel de significancia, por defecto **0,05** y tomamos una hipótesis alternativa que sostiene que la distribución no es normal.
 
 Como resultados podemos tomar:
 
@@ -601,10 +601,10 @@ Como podemos observar el valor de probabilidad **(p)** es muy superior a nuestro
 
 ### 9.4 T-Test {#ttest}
 
-Esta prueba es un análisis usado para determinar la diferencia significativa entre los promedios de dos grupos y de esta manera entender si están relacionados en algunas características. Los datos a analizar deben tener distribución normal. La función a utilizar para realizar ese análisis es `t.test()`.
+Esta prueba es un análisis usado para determinar la diferencia significativa entre los promedios de dos grupos y de esta manera entender si están relacionados en algunas características. Los datos para analizar deben tener distribución normal. La función a utilizar para realizar ese análisis es `t.test()`.
 
-Para poder entender como funciona este análisis tomaremos el siguiente ejemplo:
- * Compararemos 2 muestras, ambas con variables aleatoreas.La primera muestra tendrá una **media de 10** mientras que la segunda tendrá una **media de 10.5** y finalmente aplicaremos la función `t.test()`
+Para poder entender cómo funciona este análisis tomaremos el siguiente ejemplo:
+ * Compararemos 2 muestras, ambas con variables aleatorias. La primera muestra tendrá una **media de 10** mientras que la segunda tendrá una **media de 10.5** y finalmente aplicaremos la función `t.test()`
  
 ```{r}
 x1 <- rnorm(100,10) #Esta será nuestra variable aleatoria de media 10
@@ -633,10 +633,10 @@ Para explicar este modelo podemos usar el siguiente ejemplo:
     
  + En este caso cada color se repetirá 6 veces para que los grupos a comparar sean del mismo tamaño.
     
-+ Para realizar un análisis de Anova entre los dos grupos usamos el siguiente codigo:
++ Para realizar un análisis de Anova entre los dos grupos usamos el siguiente código:
     `fm = aov ( lm(insectos ~ colores) )`
     
-+ Tambien, si queremos un resumen del análisis anterior utilizamos la funcion _summary_ de la siguiente manera:
++ También, si queremos un resumen del análisis anterior utilizamos la funcion _summary_ de la siguiente manera:
     `summary(fm)`
     
 + Finalmente para ver los elementos generados por el análisis de Anova usamos el siguiente bloque de código:
