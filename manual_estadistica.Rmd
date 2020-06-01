@@ -43,6 +43,7 @@ A continuación definiremos e ilustraremos el como se pueden usar estas funcione
     + [Distribución de Poisson](#poisson)
 6. [Probabilidad de eventos](#eventos)
 8. [Teorema de bayes](#bayes)
+8. [Chi cuadrado](#chi)
 7. [Intervalos de confianza](#confianza)
     + [T-Test](#ttest)
     + [Anova](#anova)
@@ -460,8 +461,8 @@ $P(A_i|B) = \frac{P(B|A_i)P(A_i)}{P(B|A_1)+...+P(B|A_k)P(A_k)}$
 
 ![Extraido de rbjlabs](https://www.rbjlabs.com/wp-content/uploads/2018/06/teorema-de-bayes-ejemplo-238x300.png)
   
-  $P(A|R)=\frac{(0.2)(0.07)}{(0.2)(0.07)+(0.25)(0.08)+(0.4)(0.05)+(0.15)(0.09)}=0.2074$
-  
+$P(A|R)=\frac{(0.2)(0.07)}{(0.2)(0.07)+(0.25)(0.08)+(0.4)(0.05)+(0.15)(0.09)}=0.2074$
+
 # 7. Intervalos de confianza {#confianza}
 
 ### 7.1 T-Test {#ttest}
@@ -521,6 +522,53 @@ names(fm)
 ---
 
 # 8. Pruebas de hipótesis {#pruebas}
+
+### Chi cuadrado {#chi}
+ 
+Es la prueba más utilizada para anlizar variables cualitativas. Esta prueba se realiza para evaluar la independencia de los datos, la cual consiste en evaluar probabilidad de una difrencia igual o mayor a la que existe entre los datos y las frecuencias esperadas segun la hipótesis nula.
+
+*Ejemplo:*
+
+Table: Observado
+
+||Hombre|Mujer|Total|
+---|---|---|---|
+Apple|10|5|15|
+Android|15|20|35|
+Huawei|40|30|70|
+||65|55|120|
+
+Ahora se debe calcular el valor esperado de la siguiente forma para la celdas $\frac{(totalColumna)(totalFila)}{totalDatos}$
+  
+**Ejemplo** la primera celda: $\frac{(65)(15)}{120}=8.13$
+
+Table: Esperado
+
+||Hombre|Mujer|
+---|---|---|
+Apple|8,13|6,88|
+Android|18,96|16,04|
+Huawei|37,92|32,08|
+
+Luego se halla el cuadrado de la diferencia del observado y el esperado, sobre la cantidad de los datos. $\frac{(observado-esperado)^2}{observado}$
+
+||Hombre|Mujer|
+---|---|---|
+Apple|0,43|0,51|
+Android|0,83|0,98|
+Huawei|0,11|0,14|
+
+Se suman los valores de la tabla, para este caso, $experimental=3$.
+
+Luego procedemos a calcular el grado de liberdad, la formula para realizarlo es $(Filas-1)+(Columnas-1)$. Para este ejemplo $(3-1)(2-1)=2$
+
+Adicionalmente, se tiene que buscar el valor critico en la distribución de chi cuadrado. Para esto se escoge la columna segun los grados de libertad. Como en este ejercicio no se dice cual es el grado de confianza, asumimos que es el 95%, por lo cual debemos buscar el valor segun $1-0.95=0.05$
+
+![](https://image.slidesharecdn.com/tablachi-cuadrado-130922103507-phpapp02/95/tabla-chi-cuadrado-1-638.jpg?cb=1379846134)
+
+En este caso el valor critico es $5,991$.
+
+Para finalizar, se debe aceptar la hipotesis nula, la cual nos dice que no hay relacion entre los sistemas operativos y el genero.
 
 ### 8.1 Prueba U de Mann-Whitney {#mann}
 
